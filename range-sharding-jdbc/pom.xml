@@ -5,14 +5,5 @@
     <artifactId>dbsharding</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>precise-sharding-jdbc</artifactId>
-  
-  <dependencies>
-		<dependency>
-            <groupId>com.zyj.sharding</groupId>
-   			<artifactId>dbsharding-common</artifactId>
-    		<version>0.0.1-SNAPSHOT</version>
-        </dependency>
-	</dependencies>
-  		
+  <artifactId>range-sharding-jdbc</artifactId>
 </project>

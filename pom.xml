@@ -10,8 +10,9 @@
 	  <packaging>pom</packaging>
 
     <modules>
-        <module>standard-sharding-jdbc</module>
+        <module>precise-sharding-jdbc</module>
         <module>dbsharding-common</module>
+        <module>range-sharding-jdbc</module>
     </modules>
 
     <parent>

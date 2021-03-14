@@ -21,7 +21,7 @@ public class DbShardingServiceImpl implements DbShardingService {
 	
 	@Override
 	public void dbPreciseShardingInsert() {
-		for (int i=0; i<1; i++) {
+		for (int i=0; i<2000; i++) {
 			TOrder order = new TOrder();
 			order.setOrderNo("A000" + i);
 			order.setUserId(Long.parseLong(i + ""));

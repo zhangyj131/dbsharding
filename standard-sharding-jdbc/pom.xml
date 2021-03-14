@@ -5,7 +5,7 @@
     <artifactId>dbsharding</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>precise-sharding-jdbc</artifactId>
+  <artifactId>standard-sharding-jdbc</artifactId>
   
   <dependencies>
 		<dependency>

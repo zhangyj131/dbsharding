@@ -1,4 +1,4 @@
-#range分表
+#precise分表设置
 server.port=18080
 
 spring.application.name = db-precise-sharding
@@ -77,6 +77,7 @@ spring.shardingsphere.sharding.tables.t_order.database-strategy.standard.shardin
 spring.shardingsphere.sharding.tables.t_order.database-strategy.standard.precise-algorithm-class-name=com.zyj.sharding.algorithm.db.DbShardingPreciseShardingAlgorithm
 # 分表分片健
 spring.shardingsphere.sharding.tables.t_order.actual-data-nodes: db$->{0..3}.t_order_$->{0..2}
+#spring.shardingsphere.sharding.tables.t_order.actual-data-nodes: t_order_$->{0..2}
 spring.shardingsphere.sharding.tables.t_order.table-strategy.standard.sharding-column=order_id
 # 分表分片算法
 spring.shardingsphere.sharding.tables.t_order.table-strategy.standard.precise-algorithm-class-name=com.zyj.sharding.algorithm.db.TableShardingPreciseShardingAlgorithm
@@ -88,6 +89,7 @@ spring.shardingsphere.sharding.tables.t_order_item.database-strategy.standard.sh
 spring.shardingsphere.sharding.tables.t_order_item.database-strategy.standard.precise-algorithm-class-name=com.zyj.sharding.algorithm.db.DbShardingPreciseShardingAlgorithm
 # 分表分片健
 spring.shardingsphere.sharding.tables.t_order_item.actual-data-nodes: db$->{0..3}.t_order_item_$->{0..2}
+#spring.shardingsphere.sharding.tables.t_order_item.actual-data-nodes: t_order_item_$->{0..2}
 spring.shardingsphere.sharding.tables.t_order_item.table-strategy.standard.sharding-column=order_id
 # 分表分片算法
 spring.shardingsphere.sharding.tables.t_order_item.table-strategy.standard.precise-algorithm-class-name=com.zyj.sharding.algorithm.db.TableShardingPreciseShardingAlgorithm

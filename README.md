@@ -41,17 +41,17 @@ dbsharding	父工程
 创建db_0、db_1、db_2、db_3 数据库
 
 ```sql
--- drop database db_0;
 CREATE DATABASE IF NOT EXISTS db_0 default charset utf8 COLLATE utf8_general_ci;
 CREATE DATABASE IF NOT EXISTS db_1 default charset utf8 COLLATE utf8_general_ci;
 CREATE DATABASE IF NOT EXISTS db_2 default charset utf8 COLLATE utf8_general_ci;
 CREATE DATABASE IF NOT EXISTS db_3 default charset utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS db_x default charset utf8 COLLATE utf8_general_ci;
 ```
 
 在每个库创建下面表
 
 ```sql
-CREATE TABLE `order_0` (
+CREATE TABLE `t_order` (
   `order_id` bigint(200) NOT NULL,
   `order_no` varchar(100) DEFAULT NULL,
   `user_id` bigint(200) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `order_0` (
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE `order_1` (
+CREATE TABLE `t_order_0` (
   `order_id` bigint(200) NOT NULL,
   `order_no` varchar(100) DEFAULT NULL,
   `user_id` bigint(200) NOT NULL,
@@ -69,7 +69,16 @@ CREATE TABLE `order_1` (
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE `order_2` (
+CREATE TABLE `t_order_1` (
+  `order_id` bigint(200) NOT NULL,
+  `order_no` varchar(100) DEFAULT NULL,
+  `user_id` bigint(200) NOT NULL,
+  `create_name` varchar(50) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `t_order_2` (
   `order_id` bigint(200) NOT NULL,
   `order_no` varchar(100) DEFAULT NULL,
   `user_id` bigint(200) NOT NULL,
@@ -79,7 +88,7 @@ CREATE TABLE `order_2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 
-CREATE TABLE `order_item_0` (
+CREATE TABLE `t_order_item` (
   `item_id` bigint(100) NOT NULL,
   `order_id` bigint(200) NOT NULL,
   `order_no` varchar(200) NOT NULL,
@@ -88,7 +97,7 @@ CREATE TABLE `order_item_0` (
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE `order_item_1` (
+CREATE TABLE `t_order_item_0` (
   `item_id` bigint(100) NOT NULL,
   `order_id` bigint(200) NOT NULL,
   `order_no` varchar(200) NOT NULL,
@@ -97,7 +106,7 @@ CREATE TABLE `order_item_1` (
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE `order_item_2` (
+CREATE TABLE `t_order_item_1` (
   `item_id` bigint(100) NOT NULL,
   `order_id` bigint(200) NOT NULL,
   `order_no` varchar(200) NOT NULL,
@@ -106,6 +115,14 @@ CREATE TABLE `order_item_2` (
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
+CREATE TABLE `t_order_item_2` (
+  `item_id` bigint(100) NOT NULL,
+  `order_id` bigint(200) NOT NULL,
+  `order_no` varchar(200) NOT NULL,
+  `item_name` varchar(50) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 ```
 
 

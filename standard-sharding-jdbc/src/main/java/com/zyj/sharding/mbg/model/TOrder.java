@@ -4,26 +4,18 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class OrderItem implements Serializable {
-    private Long itemId;
-
+public class TOrder implements Serializable {
     private Long orderId;
 
     private String orderNo;
 
-    private String itemName;
+    private Long userId;
+
+    private String createName;
 
     private BigDecimal price;
 
     private static final long serialVersionUID = 1L;
-
-    public Long getItemId() {
-        return itemId;
-    }
-
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
-    }
 
     public Long getOrderId() {
         return orderId;
@@ -41,12 +33,20 @@ public class OrderItem implements Serializable {
         this.orderNo = orderNo;
     }
 
-    public String getItemName() {
-        return itemName;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getCreateName() {
+        return createName;
+    }
+
+    public void setCreateName(String createName) {
+        this.createName = createName;
     }
 
     public BigDecimal getPrice() {
@@ -63,10 +63,10 @@ public class OrderItem implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", itemId=").append(itemId);
         sb.append(", orderId=").append(orderId);
         sb.append(", orderNo=").append(orderNo);
-        sb.append(", itemName=").append(itemName);
+        sb.append(", userId=").append(userId);
+        sb.append(", createName=").append(createName);
         sb.append(", price=").append(price);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

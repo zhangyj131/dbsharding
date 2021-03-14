@@ -13,6 +13,7 @@ public class DbShardingPreciseShardingAlgorithm implements PreciseShardingAlgori
 		for (String dbName : availableTargetNames) {
 			String sharding = value % availableTargetNames.size() + "";
 			if (dbName.endsWith(sharding)) {
+				System.err.println("分片库="+dbName);
 				return dbName;
 			}
 		}

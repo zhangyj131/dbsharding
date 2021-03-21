@@ -1,11 +1,11 @@
-package com.zyj.sharding.algorithm.db;
+package com.zyj.sharding.algorithm;
 
 import java.util.Collection;
 
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
 
-public class DbShardingPreciseShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
+public class DbPreciseShardingAlgorithm implements PreciseShardingAlgorithm<Long> {
 
 	@Override
 	public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<Long> shardingValue) {

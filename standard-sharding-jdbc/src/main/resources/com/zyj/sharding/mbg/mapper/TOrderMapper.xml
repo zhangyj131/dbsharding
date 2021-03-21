@@ -99,13 +99,13 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyProperty="orderId" useGeneratedKeys="true" parameterType="com.zyj.sharding.mbg.model.TOrder">
+  <insert id="insert" parameterType="com.zyj.sharding.mbg.model.TOrder">
     insert into t_order (order_id, order_no, user_id, 
       create_name, price)
     values (#{orderId,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, 
       #{createName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" keyProperty="orderId" useGeneratedKeys="true" parameterType="com.zyj.sharding.mbg.model.TOrder">
+  <insert id="insertSelective" parameterType="com.zyj.sharding.mbg.model.TOrder" useGeneratedKeys="true" keyProperty="orderId">
     insert into t_order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderId != null">

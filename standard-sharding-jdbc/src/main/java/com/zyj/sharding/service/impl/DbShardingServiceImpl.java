@@ -27,7 +27,7 @@ public class DbShardingServiceImpl implements DbShardingService {
 	
 	@Override
 	public void dbPreciseShardingInsert() {
-		for (int i=0; i<3; i++) {
+		for (int i=0; i<1; i++) {
 			TOrder order = new TOrder();
 			order.setOrderNo("A000" + i);
 			order.setUserId(Long.parseLong(i + ""));
@@ -35,7 +35,17 @@ public class DbShardingServiceImpl implements DbShardingService {
             order.setPrice(new BigDecimal("" + i));
 //            orderMapper.insert(order);
             orderMapper.insertSelective(order);//添加useGeneratedKeys="true" keyProperty="orderId" 这样插入返回主键，如此都用order_id分库，t_order和t_order_item落在同一库
-            
+            return;
+		}
+		for (int i=0; i<3; i++) {
+			TOrder order = new TOrder();
+			order.setOrderNo("A000" + i);
+			order.setUserId(Long.parseLong(i + ""));
+			order.setCreateName("订单-" + i);
+			order.setPrice(new BigDecimal("" + i));
+//            orderMapper.insert(order);
+			orderMapper.insertSelective(order);//添加useGeneratedKeys="true" keyProperty="orderId" 这样插入返回主键，如此都用order_id分库，t_order和t_order_item落在同一库
+			
 			TOrderItem orderItem = new TOrderItem();
 			orderItem.setOrderId(order.getOrderId());
 			orderItem.setOrderNo("A000" + i);

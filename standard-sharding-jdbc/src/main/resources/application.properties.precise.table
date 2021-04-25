@@ -61,6 +61,10 @@ spring.shardingsphere.datasource.dbx.password=root
 
 # 默认数据源，未分片的表默认执行库
 spring.shardingsphere.sharding.default-data-source-name=dbx
+# 这里是个sharding官方文档一个坑，只配置了default-data-source-name，对于不设置分片的表，会走全路由(比如插入t_user，会向每个库都插入)，而我们的要求只是不分片的表路由到默认数据源
+#spring.shardingsphere.sharding.binding-table-groups=t_user
+#spring.shardingsphere.sharding.binding-tables=t_user
+
 
 # 指定t_order表的主键生成策略为SNOWFLAKE
 spring.shardingsphere.sharding.tables.t_order.key-generator.column=order_id
@@ -68,6 +72,9 @@ spring.shardingsphere.sharding.tables.t_order.key-generator.type=SNOWFLAKE
 # 指定t_order_item表的主键生成策略为SNOWFLAKE
 spring.shardingsphere.sharding.tables.t_order_item.key-generator.column=item_id
 spring.shardingsphere.sharding.tables.t_order_item.key-generator.type=SNOWFLAKE
+# 指定t_user表的主键生成策略为SNOWFLAKE
+spring.shardingsphere.sharding.tables.t_user.key-generator.column=user_id
+spring.shardingsphere.sharding.tables.t_user.key-generator.type=SNOWFLAKE
 
 
 ### 分库策略

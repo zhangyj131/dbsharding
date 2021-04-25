@@ -1,6 +1,7 @@
 package com.zyj.sharding.service.impl;
 
 import java.math.BigDecimal;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,7 +60,23 @@ public class DbShardingServiceImpl implements DbShardingService {
 
 	@Override
 	public void tablePreciseShardingInsert() {
-		// TODO Auto-generated method stub
+		for (int i=0; i<1; i++) {
+			TOrder order = new TOrder();
+			order.setOrderNo("A000" + i);
+			order.setUserId(Long.parseLong(i + ""));
+			order.setCreateName("订单-" + i);
+			order.setPrice(new BigDecimal("" + i));
+//            orderMapper.insert(order);
+			orderMapper.insertSelective(order);//添加useGeneratedKeys="true" keyProperty="orderId" 这样插入返回主键，如此都用order_id分库，t_order和t_order_item落在同一库
+			
+			TOrderItem orderItem = new TOrderItem();
+			orderItem.setOrderId(order.getOrderId());
+			orderItem.setOrderNo("A000" + i);
+			orderItem.setItemName("订单-" + i);
+			orderItem.setPrice(new BigDecimal("" + i));
+//			orderItemMapper.insert(orderItem);
+			orderItemMapper.insertSelective(orderItem);
+		}
 		
 	}
 
@@ -69,7 +86,7 @@ public class DbShardingServiceImpl implements DbShardingService {
 		tUser.setAddress("浦东");
 		tUser.setAge(11);
 		tUser.setName("zhangsan");
-//		tUser.setUserId(userId);
+		tUser.setUserId(new Random().nextLong());
 		tUserMapper.insert(tUser);
 		
 	}

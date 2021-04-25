@@ -18,18 +18,30 @@ public class PreciseShardingController {
 	@Autowired
 	private DbShardingService dbShardingService;
 	
+	/**
+	 * 精准分库
+	 * @return
+	 */
 	@RequestMapping(value = "/db/precise", method = RequestMethod.GET)
 	public CommonResult<String> insertDb() {
 		dbShardingService.dbPreciseShardingInsert();
 		return CommonResult.success(null);
 	}
 	
+	/**
+	 * 精准分表
+	 * @return
+	 */
 	@RequestMapping(value = "/table/precise", method = RequestMethod.GET)
 	public CommonResult<String> insertTable() {
 		dbShardingService.tablePreciseShardingInsert();
 		return CommonResult.success(null);
 	}
 	
+	/**
+	 * 不分库分表，走默认库dbx
+	 * @return
+	 */
 	@RequestMapping(value = "/none", method = RequestMethod.GET)
 	public CommonResult<String> noneSharding() {
 		dbShardingService.noneShardingInsert();

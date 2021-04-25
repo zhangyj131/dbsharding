@@ -153,3 +153,12 @@ delete from t_user;
 
 
 
+模块介绍
+
+1. precise-standard-sharding-jdbc 精准分库、分表
+
+   application.properties.precise.db 精准分库，改为application.properties即可
+
+   application.properties.precise.table 精准分表，改为application.properties.precise即可
+
+   
